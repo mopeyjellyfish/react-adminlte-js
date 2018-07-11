@@ -19,7 +19,7 @@ export class Box extends Component {
     const {
       children,
       solid,
-      boxColor,
+      color,
       title,
       expandable,
       footer,
@@ -28,7 +28,7 @@ export class Box extends Component {
       expanded,
     } = this.state;
     return (
-      <div className={solid ? `box box-solid box-${boxColor}` : `box box-${boxColor}`}>
+      <div className={`box ${solid ? 'box-solid' : null} ${color ? `box-${color}` : null}`}>
         <div className="box-header with-border" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0}>
           { title && (
           <h3 className="box-title">
@@ -50,7 +50,7 @@ export class Box extends Component {
           {children}
         </div>
         {
-        footer && (<div className={solid ? `box-footer box-footer-solid ${boxColor}` : `box-footer ${boxColor}`} />)
+        footer && (<div className={solid ? `box-footer box-footer-solid ${color}` : `box-footer ${color}`} />)
         }
       </div>
     );
@@ -61,7 +61,7 @@ Box.propTypes = {
   expanded: PropTypes.bool,
   expandable: PropTypes.bool,
   footer: PropTypes.bool,
-  boxColor: PropTypes.string,
+  color: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.node,
 };
@@ -70,7 +70,7 @@ Box.defaultProps = {
   footer: true,
   expanded: true,
   expandable: true,
-  boxColor: 'success',
+  color: null,
   title: '',
   children: null,
 };
