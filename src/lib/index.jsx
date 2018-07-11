@@ -1,18 +1,6 @@
-import React, { Component } from "react";
+import 'admin-lte';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'admin-lte/dist/css/AdminLTE.css';
+import 'font-awesome/css/font-awesome.css';
 
-class MySuperCoolComponent extends Component {
-  handleClick = () => {
-    console.log("Click!");
-  };
-
-  render() {
-    const { color, children } = this.props;
-    return (
-      <button onClick={this.handleClick} style={{ color }}>
-        {children}
-      </button>
-    );
-  }
-}
-
-export default MySuperCoolComponent;
+export { Box } from './Box';
