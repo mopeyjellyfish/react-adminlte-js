@@ -15,7 +15,7 @@ export class InfoIcon extends PureComponent {
   }
 }
 InfoIcon.propTypes = {
-  color: PropTypes.bool,
+  color: PropTypes.string,
   children: PropTypes.node,
 };
 InfoIcon.defaultProps = {
