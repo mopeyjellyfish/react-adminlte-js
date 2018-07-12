@@ -19,7 +19,7 @@ InfoIcon.propTypes = {
   children: PropTypes.node,
 };
 InfoIcon.defaultProps = {
-  color: 'aqua',
+  color: null,
   children: null,
 };
 export default { InfoIcon };
