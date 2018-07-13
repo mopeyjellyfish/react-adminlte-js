@@ -8,7 +8,7 @@ export class Nav extends PureComponent {
     } = this.props;
     return (
       <div className="navbar navbar-static-top" role="navigation">
-        <div className="sidebar-toggle" onClick={this.togglesidebar} style={{ cursor: 'pointer' }}>
+        <div className="sidebar-toggle" onClick={this.togglesidebar} style={{ cursor: 'pointer' }} onKeyDown={this.togglesidebar} role="button" tabIndex={0}>
           <span className="sr-only">
 Toggle navigation
           </span>
@@ -20,9 +20,9 @@ Toggle navigation
           <ul className="nav navbar-nav">
             {children}
             <li>
-              <div style={{ cursor: 'pointer' }} onClick={this.togglecontrol}>
+              <a style={{ cursor: 'pointer' }} onClick={this.togglecontrol} onKeyDown={this.togglecontrol} role="button" tabIndex={0}>
                 <i className="fa fa-server" />
-              </div>
+              </a>
             </li>
           </ul>
         </div>

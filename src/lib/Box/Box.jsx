@@ -35,7 +35,7 @@ export class Box extends Component {
             {title}
           </h3>
           )}
-          <div className="box-tools pull-right">
+          <div className="box-tools pull-right" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0}>
             {
                                 expandable && !expanded
                                 && (<i className="fa fa-window-maximize" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} />)
