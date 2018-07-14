@@ -10,6 +10,7 @@ import { DemoFooter } from './Footer';
 import { DemoHeader } from './DemoHeader';
 import { DemoSidebar } from './DemoSidebar';
 import { DemoControlbar } from './DemoControl';
+import { DemoSmallBox } from './DemoSmallBox';
 
 function Demo() {
   return (
@@ -22,6 +23,7 @@ function Demo() {
           <PageHeader />
           <PageContent>
             <DemoInfoBox />
+            <DemoSmallBox />
             <DemoBox />
           </PageContent>
         </PageWrapper>

@@ -23,13 +23,17 @@ export class Box extends Component {
       title,
       expandable,
       footer,
+      loading,
+      badge,
+      badgeColor,
+      badgeMessage,
     } = this.props;
     const {
       expanded,
     } = this.state;
     return (
-      <div className={`box ${solid ? 'box-solid' : null} ${color ? `box-${color}` : null}`}>
-        <div className="box-header with-border" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0}>
+      <div className={`box ${solid ? 'box-solid' : null} ${color ? `box-${color}` : ''}`}>
+        <div className="box-header with-border" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} data-widget="collapse">
           { title && (
           <h3 className="box-title">
             {title}
@@ -37,18 +41,39 @@ export class Box extends Component {
           )}
           <div className="box-tools pull-right" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0}>
             {
-                                expandable && !expanded
-                                && (<i className="fa fa-window-maximize" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} />)
+                              badge && (
+                              <span data-toggle="tooltip" title={badge} className={`badge bg-${badgeColor}`}>
+                                {badgeMessage}
+                              </span>
+                              )
                             }
             {
-                                expandable && expanded
+              expandable && (
+                <button type="button" className="btn btn-box-tool" data-widget="collapse">
+
+                  {
+                                !expanded
+                                && (
+                                <i className="fa fa-window-maximize" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} />)
+                            }
+                  {
+                                expanded
                                 && (<i className="fa fa-window-minimize" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} />)
                             }
+                </button>)
+            }
           </div>
         </div>
         <div className={expanded ? 'box-body' : 'box_body hide'}>
           {children}
         </div>
+        {
+          loading && (
+          <div className="overlay">
+            <i className="fa fa-refresh fa-spin" />
+          </div>
+          )
+        }
         {
         footer && (<div className={solid ? `box-footer box-footer-solid ${color}` : `box-footer ${color}`} />)
         }
@@ -61,9 +86,13 @@ Box.propTypes = {
   expanded: PropTypes.bool,
   expandable: PropTypes.bool,
   footer: PropTypes.bool,
+  loading: PropTypes.bool,
   color: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.node,
+  badge: PropTypes.string,
+  badgeColor: PropTypes.string,
+  badgeMessage: PropTypes.string,
 };
 Box.defaultProps = {
   solid: false,
@@ -72,6 +101,10 @@ Box.defaultProps = {
   expandable: true,
   color: null,
   title: '',
+  loading: false,
   children: null,
+  badge: null,
+  badgeColor: 'green',
+  badgeMessage: '',
 };
 export default { Box };

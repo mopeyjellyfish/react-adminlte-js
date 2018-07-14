@@ -1,6 +1,6 @@
 {
   "name": "react-adminlte-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React library for Admin-lte",
   "main": "lib/index.js",
   "scripts": {
@@ -54,7 +54,7 @@
     "webpack-dev-server": "^3.1.3"
   },
   "author": "David Hall <davidkyelhall@gmail.com>",
-  "homepage": "https://github.com/mopeyjellyfish/react-adminlte-js",
+  "homepage": "https://mopeyjellyfish.github.io/react-adminlte-js/index.html",
   "repository": {
     "type": "git",
     "url": "git@github.com:mopeyjellyfish/react-adminlte-js.git"

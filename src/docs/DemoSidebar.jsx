@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  SidebarLeft, SidebarMenu, SidebarMenuHeader, TreeView, TreeViewMenu,
+  SidebarLeft, SidebarMenu, SidebarMenuHeader, TreeView, TreeViewMenu, TreeViewItem,
 } from '../lib/index';
 
 export const DemoSidebar = () => (
@@ -17,15 +17,23 @@ Test
           </span>
         </a>
         <TreeViewMenu>
-          <li className="" href="#test">
+          <TreeViewItem>
             <a className="active" href="#test">
               <span>
 Test
               </span>
             </a>
-          </li>
+          </TreeViewItem>
         </TreeViewMenu>
       </TreeView>
+      <TreeViewItem>
+        <a className="active" href="#test1">
+          <i className="fa fa-gamepad" />
+          <span>
+Test
+          </span>
+        </a>
+      </TreeViewItem>
     </SidebarMenu>
   </SidebarLeft>
 );

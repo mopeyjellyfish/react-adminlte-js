@@ -9,7 +9,7 @@ export const DemoInfoBox = () => (
       <div className="col-md-3 col-sm-6 col-xs-12">
         <InfoBox>
           <InfoIcon>
-            <i className="ion ion-ios-gear-outline" />
+            <i className="fa fa-envelope-o" />
           </InfoIcon>
           <InfoContent>
             <InfoData type="text">
@@ -27,7 +27,7 @@ export const DemoInfoBox = () => (
       <div className="col-md-3 col-sm-6 col-xs-12">
         <InfoBox>
           <InfoIcon color="red">
-            <i className="ion ion-ios-gear-outline" />
+            <i className="fa fa-flag-o" />
           </InfoIcon>
           <InfoContent>
             <InfoData type="text">
@@ -45,7 +45,7 @@ export const DemoInfoBox = () => (
       <div className="col-md-3 col-sm-6 col-xs-12">
         <InfoBox>
           <InfoIcon color="green">
-            <i className="ion ion-ios-gear-outline" />
+            <i className="fa fa-star-o" />
           </InfoIcon>
           <InfoContent>
             <InfoData type="text">
@@ -60,7 +60,7 @@ export const DemoInfoBox = () => (
       <div className="col-md-3 col-sm-6 col-xs-12">
         <InfoBox>
           <InfoIcon color="yellow">
-            <i className="ion ion-ios-gear-outline" />
+            <i className="fa fa-comments-o" />
           </InfoIcon>
           <InfoContent>
             <InfoData type="text">
@@ -78,7 +78,7 @@ export const DemoInfoBox = () => (
       <div className="col-md-3 col-sm-6 col-xs-12">
         <InfoBox color="aqua">
           <InfoIcon>
-            <i className="ion ion-ios-gear-outline" />
+            <i className="fa fa-bookmark-o" />
           </InfoIcon>
           <InfoContent>
             <InfoData type="text">
@@ -96,7 +96,7 @@ export const DemoInfoBox = () => (
       <div className="col-md-3 col-sm-6 col-xs-12">
         <InfoBox color="red">
           <InfoIcon>
-            <i className="ion ion-ios-gear-outline" />
+            <i className="fa fa-thumbs-o-up" />
           </InfoIcon>
           <InfoContent>
             <InfoData type="text">
@@ -114,7 +114,7 @@ export const DemoInfoBox = () => (
       <div className="col-md-3 col-sm-6 col-xs-12">
         <InfoBox color="green">
           <InfoIcon>
-            <i className="ion ion-ios-gear-outline" />
+            <i className="fa fa-shopping-cart" />
           </InfoIcon>
           <InfoContent>
             <InfoData type="text">
@@ -129,7 +129,7 @@ export const DemoInfoBox = () => (
       <div className="col-md-3 col-sm-6 col-xs-12">
         <InfoBox color="yellow">
           <InfoIcon>
-            <i className="ion ion-ios-gear-outline" />
+            <i className="fa fa-calendar" />
           </InfoIcon>
           <InfoContent>
             <InfoData type="text">
