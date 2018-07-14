@@ -14,10 +14,12 @@ export class Box extends Component {
   }
 
   onDismiss() {
+    console.log(`expanded ${this.state.expanded} dismissed ${this.state.dismissed}`);
     this.setState(prevState => ({ dismissed: !prevState.dismissed }));
   }
 
   onExpandClick() {
+    console.log(`expanded ${this.state.expanded} dismissed ${this.state.dismissed}`);
     this.setState(prevState => ({ expanded: !prevState.expanded }));
   }
 
@@ -52,7 +54,7 @@ export class Box extends Component {
             {title}
           </h3>
           )}
-          <div className="box-tools pull-right" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0}>
+          <div className="box-tools pull-right" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} data-widget="collapse">
             {
                               badge && (
                               <span data-toggle="tooltip" title={badge} className={`badge bg-${badgeColor}`}>
@@ -67,17 +69,17 @@ export class Box extends Component {
                   {
                                 !expanded
                                 && (
-                                <i className="fa fa-window-maximize" />)
+                                <i className="fa fa-plus" />)
                             }
                   {
                                 expanded
-                                && (<i className="fa fa-window-minimize" />)
+                                && (<i className="fa fa-minus" />)
                             }
                 </button>)
             }
             {
               dismissible && (
-                <button type="button" className="btn btn-box-tool" onClick={this.onDismiss} onKeyDown={this.onDismiss}>
+                <button type="button" className="btn btn-box-tool" onClick={this.onDismiss} onKeyDown={this.onDismiss} data-widget="remove">
                   <i className="fa fa-times" />
                 </button>
               )

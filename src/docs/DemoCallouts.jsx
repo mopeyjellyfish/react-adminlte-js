@@ -10,7 +10,7 @@ export const DemoCallouts = () => (
       icon="fa fa-bullhorn"
     >
       <Callout color="danger" icon="fa fa-ban" title="Error">
-                    this is a test alert
+                     this is a test alert
       </Callout>
       <Callout color="info" title="Info">
                     this is a test alert
