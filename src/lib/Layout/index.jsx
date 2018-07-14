@@ -8,3 +8,4 @@ export * from './Header/NavBar';
 export * from './Header/UserMenu';
 export * from './Sidebar';
 export * from './Content';
+export * from './ControlBar';

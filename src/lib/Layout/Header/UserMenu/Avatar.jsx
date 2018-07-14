@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import noAvatar from '../../images/no-avatar.png';
+import noAvatar from '../../../images/no-avatar.png';
 
 export class Avatar extends PureComponent {
   render() {

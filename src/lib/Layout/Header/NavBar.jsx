@@ -1,7 +1,38 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class Nav extends PureComponent {
+export class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      controlbar: false,
+      sidebar: false,
+    };
+    this.togglecontrol = this.togglecontrol.bind(this);
+    this.togglesidebar = this.togglesidebar.bind(this);
+  }
+
+  togglecontrol() {
+    const { controlbar } = this.state;
+    if (controlbar) {
+      window.$('body').removeClass('control-sidebar-open', 1000, 'easeInBack');
+    } else {
+      window.$('body').addClass('control-sidebar-open');
+    }
+    this.setState(prevState => ({ controlbar: !prevState.controlbar }));
+  }
+
+  togglesidebar() {
+    const { sidebar } = this.state;
+    if (sidebar) {
+      window.$('body').addClass('sidebar-collapse');
+    } else {
+      window.$('body').removeClass('sidebar-collapse', 1000, 'easeInBack');
+    }
+    this.setState(prevState => ({ sidebar: !prevState.sidebar }));
+  }
+
+
   render() {
     const {
       children,

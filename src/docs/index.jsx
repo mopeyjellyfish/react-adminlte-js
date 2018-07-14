@@ -9,7 +9,7 @@ import {
 import { DemoFooter } from './Footer';
 import { DemoHeader } from './DemoHeader';
 import { DemoSidebar } from './DemoSidebar';
-import { DemoControlbar } from './Control';
+import { DemoControlbar } from './DemoControl';
 
 function Demo() {
   return (
