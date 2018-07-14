@@ -11,6 +11,8 @@ import { DemoHeader } from './DemoHeader';
 import { DemoSidebar } from './DemoSidebar';
 import { DemoControlbar } from './DemoControl';
 import { DemoSmallBox } from './DemoSmallBox';
+import { DemoAlertBox } from './DemoAlert';
+import { DemoCallouts } from './DemoCallouts';
 
 function Demo() {
   return (
@@ -25,6 +27,10 @@ function Demo() {
             <DemoInfoBox />
             <DemoSmallBox />
             <DemoBox />
+            <div className="row">
+              <DemoAlertBox />
+              <DemoCallouts />
+            </div>
           </PageContent>
         </PageWrapper>
         <DemoFooter />

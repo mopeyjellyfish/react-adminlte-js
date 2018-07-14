@@ -1,16 +1,26 @@
 import React from 'react';
 import {
-  SidebarLeft, SidebarMenu, SidebarMenuHeader, TreeView, TreeViewMenu, TreeViewItem,
+  SidebarLeft, SidebarMenu, SidebarMenuHeader, TreeView, TreeViewMenu, TreeViewItem, UserPanel,
 } from '../lib/index';
 
 export const DemoSidebar = () => (
   <SidebarLeft>
+    <UserPanel>
+      <p>
+Test Admin
+      </p>
+      <a href="#">
+        <i className="fa fa-circle text-success" />
+        {' '}
+Online
+      </a>
+    </UserPanel>
     <SidebarMenu>
       <SidebarMenuHeader>
       SIDEBAR ITEMS
       </SidebarMenuHeader>
       <TreeView name="test">
-        <a className="active" href="#test">
+        <a className="active">
           <i className="fa fa-dashboard" />
           <span>
 Test

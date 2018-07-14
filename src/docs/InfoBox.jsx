@@ -126,7 +126,7 @@ export const DemoInfoBox = () => (
           </InfoContent>
         </InfoBox>
       </div>
-      <div className="col-md-3 col-sm-6 col-xs-12">
+      <div className="col-md-3 col-sm-3 col-xs-12">
         <InfoBox color="yellow">
           <InfoIcon>
             <i className="fa fa-calendar" />

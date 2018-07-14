@@ -9,3 +9,5 @@ export * from './Box';
 export * from './InfoBox';
 export * from './Layout';
 export * from './SmallBox';
+export * from './Alert';
+export * from './Callouts';

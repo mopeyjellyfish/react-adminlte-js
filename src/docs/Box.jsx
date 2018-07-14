@@ -35,6 +35,22 @@ export const DemoBox = () => (
         />
       </div>
     </div>
+    <div className="row">
+      <div className="col-md-6 col-sm-12 col-xs-12">
+        <Box
+          title="dismissible"
+          dismissible
+
+        />
+      </div>
+      <div className="col-md-6 col-sm-12 col-xs-12">
+        <Box
+          title="dismissible"
+          dismissible
+
+        />
+      </div>
+    </div>
   </div>
 );
 

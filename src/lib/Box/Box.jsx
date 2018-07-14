@@ -7,8 +7,14 @@ export class Box extends Component {
 
     this.state = {
       expanded: props.expanded,
+      dismissed: false,
     };
     this.onExpandClick = this.onExpandClick.bind(this);
+    this.onDismiss = this.onDismiss.bind(this);
+  }
+
+  onDismiss() {
+    this.setState(prevState => ({ dismissed: !prevState.dismissed }));
   }
 
   onExpandClick() {
@@ -27,13 +33,20 @@ export class Box extends Component {
       badge,
       badgeColor,
       badgeMessage,
+      icon,
+      dismissible,
     } = this.props;
     const {
       expanded,
+      dismissed,
     } = this.state;
-    return (
-      <div className={`box ${solid ? 'box-solid' : null} ${color ? `box-${color}` : ''}`}>
-        <div className="box-header with-border" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} data-widget="collapse">
+    return !dismissed && (
+      <div className={`box ${solid ? 'box-solid' : ''} ${color ? `box-${color}` : ''}`}>
+        <div className="box-header with-border" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0}>
+          {
+              icon && (
+                <i className={`icon ${icon}`} />)
+          }
           { title && (
           <h3 className="box-title">
             {title}
@@ -49,19 +62,26 @@ export class Box extends Component {
                             }
             {
               expandable && (
-                <button type="button" className="btn btn-box-tool" data-widget="collapse">
+                <button type="button" className="btn btn-box-tool" onClick={this.onExpandClick} onKeyDown={this.onExpandClick}>
 
                   {
                                 !expanded
                                 && (
-                                <i className="fa fa-window-maximize" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} />)
+                                <i className="fa fa-window-maximize" />)
                             }
                   {
                                 expanded
-                                && (<i className="fa fa-window-minimize" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} />)
+                                && (<i className="fa fa-window-minimize" />)
                             }
                 </button>)
             }
+            {
+              dismissible && (
+                <button type="button" className="btn btn-box-tool" onClick={this.onDismiss} onKeyDown={this.onDismiss}>
+                  <i className="fa fa-times" />
+                </button>
+              )
+          }
           </div>
         </div>
         <div className={expanded ? 'box-body' : 'box_body hide'}>
@@ -93,6 +113,8 @@ Box.propTypes = {
   badge: PropTypes.string,
   badgeColor: PropTypes.string,
   badgeMessage: PropTypes.string,
+  icon: PropTypes.string,
+  dismissible: PropTypes.bool,
 };
 Box.defaultProps = {
   solid: false,
@@ -106,5 +128,7 @@ Box.defaultProps = {
   badge: null,
   badgeColor: 'green',
   badgeMessage: '',
+  icon: null,
+  dismissible: false,
 };
 export default { Box };
