@@ -14,13 +14,21 @@ export class Box extends Component {
   }
 
   onDismiss() {
-    console.log(`expanded ${this.state.expanded} dismissed ${this.state.dismissed}`);
-    this.setState(prevState => ({ dismissed: !prevState.dismissed }));
+    const {
+      dismissible,
+    } = this.props;
+    if (dismissible) {
+      this.setState(prevState => ({ dismissed: !prevState.dismissed }));
+    }
   }
 
   onExpandClick() {
-    console.log(`expanded ${this.state.expanded} dismissed ${this.state.dismissed}`);
-    this.setState(prevState => ({ expanded: !prevState.expanded }));
+    const {
+      expandable,
+    } = this.props;
+    if (expandable) {
+      this.setState(prevState => ({ expanded: !prevState.expanded }));
+    }
   }
 
   render() {

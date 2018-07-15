@@ -9,5 +9,7 @@ export * from './Box';
 export * from './InfoBox';
 export * from './Layout';
 export * from './SmallBox';
+export { Breadcrumb } from './Breadcrumb';
+export { Progress } from './Progress';
 export { Alert } from './Alert';
 export { Callout } from './Callouts';

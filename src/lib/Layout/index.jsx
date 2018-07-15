@@ -6,6 +6,7 @@ export * from './Header/MiniLogo';
 export * from './Header/LargeLogo';
 export * from './Header/NavBar';
 export * from './Header/UserMenu';
+export * from './Header/DropDownMenu';
 export * from './Sidebar';
 export * from './Content';
 export * from './ControlBar';

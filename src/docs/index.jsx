@@ -4,7 +4,7 @@ import { DemoBox } from './Box';
 import './styles.css';
 import { DemoInfoBox } from './InfoBox';
 import {
-  Wrapper, PageWrapper, PageHeader, PageContent,
+  Wrapper, PageWrapper, PageHeader, PageContent, Breadcrumb,
 } from '../lib';
 import { DemoFooter } from './Footer';
 import { DemoHeader } from './DemoHeader';
@@ -13,6 +13,7 @@ import { DemoControlbar } from './DemoControl';
 import { DemoSmallBox } from './DemoSmallBox';
 import { DemoAlertBox } from './DemoAlert';
 import { DemoCallouts } from './DemoCallouts';
+import { DemoProgress } from './DemoProgress';
 
 function Demo() {
   return (
@@ -22,7 +23,16 @@ function Demo() {
         <DemoSidebar />
         <DemoControlbar />
         <PageWrapper>
-          <PageHeader />
+          <PageHeader title="Demo Page" subTitle="Page to test components">
+            <Breadcrumb
+              items={[
+                { key: 1, title: 'Demo Page' },
+                {
+                  key: 2, icon: 'fa fa-dashboard', title: 'Users', url: '/',
+                },
+              ]}
+            />
+          </PageHeader>
           <PageContent>
             <DemoInfoBox />
             <DemoSmallBox />
@@ -31,6 +41,7 @@ function Demo() {
               <DemoAlertBox />
               <DemoCallouts />
             </div>
+            <DemoProgress />
           </PageContent>
         </PageWrapper>
         <DemoFooter />

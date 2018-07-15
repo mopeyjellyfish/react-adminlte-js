@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Footer } from './Footer';
-import { Body } from './Body';
-import { Tools } from './Tools';
 
 export class Box extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      expanded: ('expanded' in props) ? props.expanded : true,
+      expanded: props.expanded,
+      dismissed: false,
     };
     this.onExpandClick = this.onExpandClick.bind(this);
+    this.onDismiss = this.onDismiss.bind(this);
+  }
+
+  onDismiss() {
+    this.setState(prevState => ({ dismissed: !prevState.dismissed }));
   }
 
   onExpandClick() {
@@ -22,35 +25,83 @@ export class Box extends Component {
     const {
       children,
       solid,
-      boxColor,
+      color,
       title,
       expandable,
       footer,
+      loading,
+      badge,
+      badgeColor,
+      badgeMessage,
+      icon,
+      dismissible,
     } = this.props;
     const {
       expanded,
+      dismissed,
     } = this.state;
-    return (
-      <div className={solid ? `box box-solid box-${boxColor}` : `box box-${boxColor}`}>
-        <div className="box-header with-border">
-          <div className="box-title" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0}>
+    return !dismissed && (
+      <div className={`box ${solid ? 'box-solid' : ''} ${color ? `box-${color}` : ''}`}>
+      {
+        expandable && (<div className="box-header with-border" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0}>)
+      }
+      {
+        !expandable && (<div className="box-header with-border">)
+      }
+        
+          {
+              icon && (
+                <i className={`icon ${icon}`} />)
+          }
+          { title && (
+          <h3 className="box-title">
+            {title}
+          </h3>
+          )}
+          <div className="box-tools pull-right" onClick={this.onExpandClick} onKeyDown={this.onExpandClick} role="button" tabIndex={0} data-widget="collapse">
             {
-                                title
-                                && (
-                                <h3>
-                                  {title}
-                                </h3>
-                                )
+                              badge && (
+                              <span data-toggle="tooltip" title={badge} className={`badge bg-${badgeColor}`}>
+                                {badgeMessage}
+                              </span>
+                              )
                             }
+            {
+              expandable && (
+                <button type="button" className="btn btn-box-tool" onClick={this.onExpandClick} onKeyDown={this.onExpandClick}>
+
+                  {
+                                !expanded
+                                && (
+                                <i className="fa fa-plus" />)
+                            }
+                  {
+                                expanded
+                                && (<i className="fa fa-minus" />)
+                            }
+                </button>)
+            }
+            {
+              dismissible && (
+                <button type="button" className="btn btn-box-tool" onClick={this.onDismiss} onKeyDown={this.onDismiss} data-widget="remove">
+                  <i className="fa fa-times" />
+                </button>
+              )
+          }
           </div>
         </div>
-        <Tools {...expanded ...expandable} />
-        <Body {...expanded}>
+        <div className={expanded ? 'box-body' : 'box_body hide'}>
           {children}
-        </Body>
+        </div>
         {
-          footer ? (<Footer {...this.props} />) : null
-
+          loading && (
+          <div className="overlay">
+            <i className="fa fa-refresh fa-spin" />
+          </div>
+          )
+        }
+        {
+        footer && (<div className={solid ? `box-footer box-footer-solid ${color}` : `box-footer ${color}`} />)
         }
       </div>
     );
@@ -61,17 +112,29 @@ Box.propTypes = {
   expanded: PropTypes.bool,
   expandable: PropTypes.bool,
   footer: PropTypes.bool,
-  boxColor: PropTypes.string,
+  loading: PropTypes.bool,
+  color: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.node,
+  badge: PropTypes.string,
+  badgeColor: PropTypes.string,
+  badgeMessage: PropTypes.string,
+  icon: PropTypes.string,
+  dismissible: PropTypes.bool,
 };
 Box.defaultProps = {
   solid: false,
   footer: true,
   expanded: true,
   expandable: true,
-  boxColor: 'success',
+  color: null,
   title: '',
+  loading: false,
   children: null,
+  badge: null,
+  badgeColor: 'green',
+  badgeMessage: '',
+  icon: null,
+  dismissible: false,
 };
 export default { Box };
