@@ -1,6 +1,6 @@
 {
   "name": "react-adminlte-js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React library for Admin-lte",
   "main": "lib/index.js",
   "scripts": {
@@ -11,10 +11,11 @@
     "docs:prod": "webpack --mode production"
   },
   "keywords": [
+    "adminLTE",
+    "react",
     "admin-lte",
     "admin",
-    "lte",
-    "react"
+    "lte"
   ],
   "license": "MIT",
   "peerDependencies": {
