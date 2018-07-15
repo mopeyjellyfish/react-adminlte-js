@@ -22,11 +22,13 @@ export const DemoControlbar = () => (
         </a>
       </TabHeaderItem>
     </TabHeader>
-    <TabContent>
-      <TabPane>
-        test
-      </TabPane>
-    </TabContent>
+    <div className="tab-content">
+      <div className="tab-pane" id="control-sidebar-home-tab">
+        <p>
+        test content here
+        </p>
+      </div>
+    </div>
   </ControlBarRight>
 );
 

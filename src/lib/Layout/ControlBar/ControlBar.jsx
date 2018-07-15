@@ -5,18 +5,25 @@ export class ControlBarRight extends PureComponent {
   render() {
     const {
       children,
+      color,
     } = this.props;
     return (
-      <aside className="control-sidebar control-sidebar-dark">
-        {children}
-      </aside>
+      <div>
+        <aside className={`control-sidebar control-sidebar-${color}`}>
+          {children}
+        </aside>
+
+        <div className="control-sidebar-bg" />
+      </div>
     );
   }
 }
 ControlBarRight.propTypes = {
   children: PropTypes.node,
+  color: PropTypes.string,
 };
 ControlBarRight.defaultProps = {
   children: null,
+  color: 'dark',
 };
 export default { ControlBarRight };

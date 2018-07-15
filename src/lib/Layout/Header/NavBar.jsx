@@ -1,49 +1,18 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-export class Nav extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      controlbar: false,
-      sidebar: false,
-    };
-    this.togglecontrol = this.togglecontrol.bind(this);
-    this.togglesidebar = this.togglesidebar.bind(this);
-  }
-
-  togglecontrol() {
-    const { controlbar } = this.state;
-    if (controlbar) {
-      window.$('body').removeClass('control-sidebar-open', 1000, 'easeInBack');
-    } else {
-      window.$('body').addClass('control-sidebar-open');
-    }
-    this.setState(prevState => ({ controlbar: !prevState.controlbar }));
-  }
-
-  togglesidebar() {
-    const { sidebar } = this.state;
-    if (sidebar) {
-      window.$('body').addClass('sidebar-collapse');
-    } else {
-      window.$('body').removeClass('sidebar-collapse', 1000, 'easeInBack');
-    }
-    this.setState(prevState => ({ sidebar: !prevState.sidebar }));
-  }
-
-
+export class Nav extends PureComponent {
   render() {
     const {
       children,
     } = this.props;
     return (
       <div className="navbar navbar-static-top" role="navigation">
-        <div className="sidebar-toggle" onClick={this.togglesidebar} style={{ cursor: 'pointer' }} onKeyDown={this.togglesidebar} role="button" tabIndex={0}>
+        <a className="sidebar-toggle" style={{ cursor: 'pointer' }} data-toggle="push-menu">
           <span className="sr-only">
 Toggle navigation
           </span>
-        </div>
+        </a>
         <span className="icon-bar" />
         <span className="icon-bar" />
         <span className="icon-bar" />
@@ -51,7 +20,7 @@ Toggle navigation
           <ul className="nav navbar-nav">
             {children}
             <li>
-              <a style={{ cursor: 'pointer' }} onClick={this.togglecontrol} onKeyDown={this.togglecontrol} role="button" tabIndex={0}>
+              <a style={{ cursor: 'pointer' }} data-toggle="control-sidebar">
                 <i className="fa fa-server" />
               </a>
             </li>
